@@ -6,7 +6,7 @@ import re
 
 def get_content(url_link):
     """
-    get_content gets all the contents on an article page
+    get_content gets all the contents on article page
 
     :param url_link is the article to scrape
     :return: a list paragraphs found on article
