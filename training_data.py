@@ -78,9 +78,8 @@ if __name__ == "__main__":
     fact_file = input("Fact-Based Filename: ")
     opinion_file = opinion_file.split()[0]
     fact_file = fact_file.split()[0]
-    try:
-        opinion_urls = get_urls(opinion_file)
-        fact_urls = get_urls(fact_file)
-        opinion_keywords = get_keywords(opinion_urls)
-        fact_keywords = get_keywords(fact_urls)
-        write_keywords(opinion_keywords, fact_keywords)
+    opinion_urls = get_urls(opinion_file)
+    fact_urls = get_urls(fact_file)
+    opinion_keywords = get_keywords(opinion_urls)
+    fact_keywords = get_keywords(fact_urls)
+    write_keywords(opinion_keywords, fact_keywords)
