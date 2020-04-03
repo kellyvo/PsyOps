@@ -1,8 +1,8 @@
 import praw
 import sys
 
-def writeURLsTo(filename, url):
-    with open(filename, 'a') as f:
+def writeURLsTo(filename, url, filemode):
+    with open(filename, filemode) as f:
         f.write(url+"\n")
 
 def getWebsite(website):
@@ -34,16 +34,24 @@ def scrapeURLs():
     )
 
     links=dict()
+    allLinks=list()
 
     #time_filter="day"
 
-    for link in reddit_instance.subreddit(sys.argv[1]).hot(limit=100):
+    for link in reddit_instance.subreddit(sys.argv[1]).hot(limit=5):
         if("reddit" not in link.url):
+            allLinks.append(link.url)
             addToDict(link.url, links)
 
     for website in links.keys():
         for link in links[website]:
-            writeURLsTo("./links/"+sys.argv[1]+"/"+website+".txt", link)
+            writeURLsTo("./links/"+website+".txt", link, 'a')
+
+    for link in range(len(allLinks)):
+        if(link==0):
+            writeURLsTo("./input.txt", allLinks[link], 'w')
+        else:
+            writeURLsTo("./input.txt", allLinks[link], 'a')
 
 if __name__=='__main__':
     scrapeURLs()
