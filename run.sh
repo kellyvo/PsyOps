@@ -21,6 +21,7 @@ chmod +x training_data.py
 chmod +x fact_or_opinion.py
 chmod +x RedditScraper.py
 chmod +x Linear_Regression.py
+chmod +x SVM.py
 
 
 # Gets the training data (keywords)
@@ -96,10 +97,12 @@ if [ ! -f results.txt ]; then
     printf "" > results.txt
 fi
 
-if [ $1 == "y" ]; then
-	python3 Linear_Regression.py yes | tee -a results.txt
-else
-	python3 Linear_Regression.py no | tee -a results.txt
-fi
+python3 SVM.py | tee -a results.txt
+
+#if [ $1 == "y" ]; then
+#	python3 Linear_Regression.py yes | tee -a results.txt
+#else
+#	python3 Linear_Regression.py no | tee -a results.txt
+#fi
 
 echo "Done"
