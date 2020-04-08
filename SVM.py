@@ -126,7 +126,7 @@ def train(inputs, outputs):
     for article in inputs:
         x.append([article.x, article.y])
 
-    machine=svm.SVC()
+    machine=svm.SVC(gamma='scale')
     machine.fit(x, outputs)
 
     return machine
