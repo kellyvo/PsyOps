@@ -46,7 +46,7 @@ def readTrainingFile():
             else:
                 outputs.append(0)
             url = lines[line+1].strip()
-            opinionatedRE = re.search("[0-9.]+", lines[line + 2])
+            opinionatedRE = re.search("[0-9.]+", lines[line + 3])
             opinionatedPercent = float(opinionatedRE.group(0))
             inputs.append(data(url, opinionatedPercent))
 
@@ -86,6 +86,8 @@ def showTrainingData1d(articles, output):
 
     y=np.zeros(len(unopinionated))
     pp.plot(unopinionated, y, 'ro')
+
+    pp.show()
 
 def showTrainingData2d(articles, output):
     opinionated=list()
