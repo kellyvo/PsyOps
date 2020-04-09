@@ -38,7 +38,7 @@ def scrapeURLs():
 
     #time_filter="day"
 
-    for link in reddit_instance.subreddit(sys.argv[1]).hot(limit=5):
+    for link in reddit_instance.subreddit(sys.argv[1]).hot(limit=100):
         if("reddit" not in link.url):
             allLinks.append(link.url)
             addToDict(link.url, links)
