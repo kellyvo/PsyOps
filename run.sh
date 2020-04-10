@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Checks to make sure that the input file exists
-if [ ! -f input.txt ]; then
-	echo "Input file input.txt does not exist. Store the inputs in this file."
-	exit 1
-fi
-
 if [ $# -ne 1 ]; then
 	echo "Wrong number of command line args. There should be 1 command line arg."
 	exit 1
