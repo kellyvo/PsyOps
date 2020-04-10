@@ -15,25 +15,37 @@ elif [ $1 != 'y' ] && [ $1 != 'n' ]; then
 	exit 1
 fi
 
-
-# Changes the python programs to be executable
-chmod +x training_data.py
-chmod +x fact_or_opinion.py
-chmod +x RedditScraper.py
-chmod +x Linear_Regression.py
-chmod +x SVM.py
-
-
 # Gets the training data (keywords)
 echo "Getting training data. This may take a while"
-#printf "Opinionated.txt\nUnopinionated.txt\n" | python3 training_data.py
 
 if [ $1 == "y" ]; then
+
+	# Changes all files into executables
+	echo "Creating executables"
+	
+	chmod +x RedditScraper.py
+	chmod +x training_data.py
+	chmod +x fact_or_opinion.py
+	chmod +x SVM.py
+
+	# Installs the dependencies
+	echo "Installing dependencies"
+	
+	pip install -U praw > /dev/null
+	pip install -U bs4 > /dev/null
+	pip install -U nltk > /dev/null
+	pip install -U requests > /dev/null
+	pip install -U scikit-learn > /dev/null
+	python -m pip install -U matplotlib > /dev/null
+	pip install -U numpy > /dev/null
+
+	echo "Generating keywords. This may take a while."
+	printf "Opinionated.txt\nUnopinionated.txt\n" | python3 training_data.py
 
 	printf "" > training.txt
 
 	# Trains the linear regression model
-	echo "Training the linear regression model"
+	echo "Getting data to train the support vector machine"
 
 	# Reads the Opinionated text document
 	while read input;
