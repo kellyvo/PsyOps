@@ -15,9 +15,6 @@ elif [ $1 != 'y' ] && [ $1 != 'n' ]; then
 	exit 1
 fi
 
-# Gets the training data (keywords)
-echo "Getting training data. This may take a while"
-
 if [ $1 == "y" ]; then
 
 	# Changes all files into executables
