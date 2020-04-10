@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ ! -d links ]; then
+	echo "Making links directory"
+	mkdir links
+fi
+
 if [ $# -ne 1 ]; then
 	echo "Wrong number of command line args. There should be 1 command line arg."
 	exit 1
