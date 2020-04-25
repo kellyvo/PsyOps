@@ -1,8 +1,14 @@
 #!/bin/bash
 
+subreddits=(news worldnews  open_news politics)
+
 if [ ! -d links ]; then
 	echo "Making links directory"
 	mkdir links
+fi
+
+if [ -f input.txt ]; then
+	echo "Deleting previous inputs"
 fi
 
 if [ $# -ne 1 ]; then
@@ -20,6 +26,7 @@ if [ $1 == "y" ]; then
 	echo "Creating executables"
 	
 	chmod +x RedditScraper.py
+	chmod +x CleanLinks.py
 	chmod +x training_data.py
 	chmod +x fact_or_opinion.py
 	chmod +x SVM.py
@@ -83,7 +90,15 @@ if [ $1 == "y" ]; then
 fi
 
 echo "Scraping reddit for input"
-python3 RedditScraper.py news
+
+for sub in "${subreddits[@]}"
+do
+	echo "Scraping $sub"
+	python3 RedditScraper.py "$sub"
+done
+
+echo "Removing duplicate links"
+python3 CleanLinks.py
 
 # Classifies the inputs
 echo "Classifying the inputs. Again, this may take a while."
