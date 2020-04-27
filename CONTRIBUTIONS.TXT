@@ -1,0 +1,20 @@
+Code:
+CleanLinks.py: Chris
+fact_or_opinion.py: Kelly
+Linear_regression.py[not used anymore]: Chris
+MatplotlibGraphin.py: Tanner
+RedditScraper.py: Chris
+run.sh: Chris
+SVM.py: Chris
+training_data.py: Kelly
+
+Other files:
+Opinionated.txt: Chris, Kelly
+Unopinionated.txt: Chris, Kelly
+readme.md: Chris
+README.TXT: Chris
+CONTRIBUTIONS.TXT: Chris
+
+Non-code realated files:
+Project document: Chris, Kelly, Tanner
+Poster: Kelly, Tanner
