@@ -107,7 +107,7 @@ printf "" > output.txt
 
 while read input;
 do
-	OUTPUT="$(echo $input | python3 fact_or_opinion.py 2>/dev/null)"
+	OUTPUT="$(echo $input | python3 fact_or_opinion.py 2> /dev/null)"
 	OUTPUT=${OUTPUT:5}
 	if [ ${#OUTPUT} -gt 10 ] ; then
 		echo $input | tee -a output.txt
