@@ -17,4 +17,4 @@ CONTRIBUTIONS.TXT: Chris
 
 Non-code realated files:
 Project document: Chris, Kelly, Tanner
-Poster: Kelly, Tanner
+Poster: Kelly, Tanner, Chris
